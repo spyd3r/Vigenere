@@ -12,8 +12,8 @@ class Vigenere
     return @cipher.join, @key.join
   end
   
-  def key_encrypt(plaintext_key, key)
-    @key = key.split(//); @plain = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z); self.fill_secret(plaintext_key, key); @cipher = []; x = 0; plaintext_key.gsub(/\W/, '').split(//).each {|plain_char| c = @plain.rotate(@plain.index(@key[x].downcase)); @cipher.push(@plain[c.index("#{plain_char.downcase}")]); x += 1 };
+  def key_encrypt(plaintext_key, shared_secret)
+    @key = shared_secret.split(//); @plain = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z); self.fill_secret(plaintext_key, shared_secret); @cipher = []; x = 0; plaintext_key.gsub(/\W/, '').split(//).each {|plain_char| c = @plain.rotate(@plain.index(@key[x].downcase)); @cipher.push(@plain[c.index("#{plain_char.downcase}")]); x += 1 };
     return @cipher.join
   end
  
